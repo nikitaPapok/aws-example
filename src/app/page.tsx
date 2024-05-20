@@ -1,7 +1,7 @@
 'use client'
 import { Amplify } from 'aws-amplify'
 import { get, post } from "aws-amplify/api"
-import awsExport from '../aws-exports'
+import awsExport from './../aws-exports'
 import { useState } from 'react'
 
 Amplify.configure(awsExport)
