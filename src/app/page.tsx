@@ -15,14 +15,14 @@ interface Response {
 export default function Home() {
 
   const [id, setId] = useState('')
-  const [res, setRes] = useState<any>(null)
+  const [res, setRes] = useState<Response[]>([])
 
   const getFunction = async () => {
     try {
       const getOption = get({ apiName: myAPI, path: path + '/' + id, })
       const result = await getOption.response
       const a = await result.body.json()
-      setRes(a)
+      setRes([...res, (a as unknown as Response)])
 
     } catch (error) {
       console.log(error)
@@ -33,7 +33,11 @@ export default function Home() {
     <>
       <input type="text" value={id} onChange={(e) => setId(e.target.value)} style={{ border: '1px solid black' }} />
       <button onClick={getFunction} style={{ marginLeft: '20px', border: '1px solid black', borderRadius: '10px', padding: '10px' }}>Click to get response</button>
-      <div>{JSON.stringify(res)}</div>
+      {res.length && res.map((element, index) => {
+        return (
+          <div key={index}>{element.name} {element.type}</div>
+        )
+      })}
     </>
 
   );
