@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/customer/{customerId}": {
+      "name": "/customer/{customerId}",
+      "lambdaFunction": "customer",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

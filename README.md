@@ -34,3 +34,23 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### AWS
+## Start
+    we can create application on the aws side and we must spesify role for this so we can deploy our application
+    ![alt text](image.png)
+    
+    after that we can use amplify init --appId <our app id> so we can connect all we do on the backend side with aws. Front end will be updated with the pushing on the github, but if we use some backend lambdas we can:
+         amplify push -update our backend
+         aplify pull --appId <our appId> --envName <name of our environment>- to pull changes from aws
+
+## Adding backend
+
+amplify add api
+then you need to answer some qusetions and in the amplify/backend/functions you have lambdas functions.
+
+To see API URL go to: API Gateway->choose your api->stages->you see invoke URL
+
+## Add ui to frontend 
+ 
+ to install amplify ui to get access from the frontend type:
+ npm i aws-amplify @aws-amplify/ui-react

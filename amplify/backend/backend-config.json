@@ -1,0 +1,43 @@
+{
+  "api": {
+    "apie5822cac": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "customer"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "customer": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_customer_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "customer"
+        }
+      ]
+    },
+    "AMPLIFY_function_customer_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "customer"
+        }
+      ]
+    }
+  }
+}
